@@ -1,0 +1,249 @@
+.shop-collections {
+  --shop-ink: #29271f;
+  --shop-muted: #79766b;
+  --shop-burgundy: #773526;
+  --shop-gold: #b99b67;
+  --shop-paper: #f8f5ee;
+  background: var(--shop-paper);
+  padding: 70px 7.5% 78px;
+  border-bottom: 1px solid #ded9ce;
+}
+
+.shop-collections__inner {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
+.shop-collections__intro {
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.shop-collections__eyebrow {
+  margin: 0 0 13px;
+  color: #7a614b;
+  font: 700 9px/1.4 'DM Sans', sans-serif;
+  letter-spacing: .19em;
+}
+
+.shop-collections__eyebrow::before,
+.shop-collections__eyebrow::after {
+  display: inline-block;
+  width: 23px;
+  height: 1px;
+  margin: 0 11px 3px;
+  background: var(--shop-gold);
+  content: '';
+}
+
+.shop-collections__intro h2 {
+  margin: 0;
+  color: var(--shop-ink);
+  font: 500 clamp(37px, 4.2vw, 51px)/1.1 'Playfair Display', serif;
+  letter-spacing: -.045em;
+}
+
+.shop-collections__supporting-copy {
+  max-width: 565px;
+  margin: 13px auto 0;
+  color: var(--shop-muted);
+  font: 400 12px/1.8 'DM Sans', sans-serif;
+}
+
+.loom-journey {
+  position: absolute;
+  z-index: 4;
+  top: clamp(68px, 7.5vw, 104px);
+  right: auto;
+  left: 50%;
+  width: 100vw;
+  height: clamp(100px, 11vw, 128px);
+  margin-left: -50vw;
+  pointer-events: none;
+  overflow: clip;
+}
+
+.loom-shuttle-image {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: -65%;
+  width: min(72vw, 780px);
+  max-width: 110%;
+  height: auto;
+  transform: translateY(-50%) scaleX(-1);
+  opacity: 0;
+  user-select: none;
+}
+
+.shop-collections__cards-frame { position: relative; margin-top: 34px; }
+
+.shop-collections__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(15px, 2.2vw, 27px);
+  scroll-margin-top: 24px;
+}
+
+.shop-collection { min-width: 0; }
+
+.shop-collection__link {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  color: var(--shop-ink);
+  background: #fbf9f3;
+  border: 1px solid #dfd6c5;
+  text-decoration: none;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.shop-collection__link::after {
+  position: absolute;
+  z-index: 1;
+  inset: 5px;
+  border: 1px solid #b99b6738;
+  content: '';
+  pointer-events: none;
+}
+
+.shop-collection__link:hover {
+  border-color: #b99b67;
+  box-shadow: 0 12px 30px #45321a0d;
+}
+
+.shop-collection__link:focus-visible {
+  outline: 3px solid var(--shop-burgundy);
+  outline-offset: 4px;
+}
+
+.shop-collection__image-wrap {
+  position: relative;
+  display: block;
+  height: clamp(205px, 24vw, 292px);
+  overflow: hidden;
+  background: #e5d9c8;
+}
+
+.shop-collection__image-wrap::after {
+  position: absolute;
+  inset: 55% 0 0;
+  background: linear-gradient(transparent, #17120f45);
+  content: '';
+  pointer-events: none;
+}
+
+.shop-collection__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .65s cubic-bezier(.22, 1, .36, 1);
+}
+
+.shop-collection__link:hover .shop-collection__image,
+.shop-collection__link:focus-visible .shop-collection__image {
+  transform: scale(1.045);
+}
+
+.shop-collection__image-index {
+  position: absolute;
+  z-index: 1;
+  bottom: 15px;
+  left: 17px;
+  color: #fffaf2;
+  font: 500 9px/1 'DM Sans', sans-serif;
+  letter-spacing: .14em;
+}
+
+.shop-collection__details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px 19px 17px;
+}
+
+.shop-collection__title {
+  color: var(--shop-ink);
+  font: 500 clamp(20px, 2vw, 24px)/1.2 'Playfair Display', serif;
+  letter-spacing: -.025em;
+}
+
+.shop-collection__description {
+  margin-top: 7px;
+  color: var(--shop-muted);
+  font: 400 10px/1.65 'DM Sans', sans-serif;
+}
+
+.shop-collection__action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 17px;
+  padding-top: 11px;
+  color: var(--shop-burgundy);
+  border-top: 1px solid #e2d9c9;
+  font: 600 9px/1.4 'DM Sans', sans-serif;
+  letter-spacing: .035em;
+}
+
+.shop-collection__action span {
+  font-size: 15px;
+  transition: transform .2s ease;
+}
+
+.shop-collection__link:hover .shop-collection__action span,
+.shop-collection__link:focus-visible .shop-collection__action span {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 760px) {
+  .shop-collections { padding: 58px 6.5% 64px; }
+  .shop-collections__inner { max-width: 680px; }
+  .shop-collections__supporting-copy { max-width: 490px; }
+  .shop-collections__cards-frame { margin-top: 27px; }
+  .loom-journey { top: 68px; height: 84px; }
+  .loom-shuttle-image { width: min(84vw, 540px); }
+  .shop-collections__grid { gap: 14px; }
+  .shop-collection__image-wrap { height: clamp(180px, 30vw, 235px); }
+  .shop-collection__details { padding: 15px 13px 14px; }
+  .shop-collection__title { font-size: clamp(18px, 2.8vw, 22px); }
+  .shop-collection__description { font-size: 9px; }
+  .shop-collection__action { margin-top: 13px; }
+}
+
+@media (max-width: 560px) {
+  .shop-collections { padding: 53px 7% 58px; }
+  .shop-collections__intro h2 { font-size: 37px; }
+  .shop-collections__supporting-copy { max-width: 360px; font-size: 11px; }
+  .shop-collections__eyebrow::before,
+  .shop-collections__eyebrow::after { width: 14px; margin-inline: 7px; }
+  .shop-collections__cards-frame { margin-top: 18px; }
+  .loom-journey { display: none; }
+  .shop-collections__grid { grid-template-columns: minmax(0, 1fr); gap: 15px; }
+  .shop-collection__link { display: grid; grid-template-columns: minmax(112px, 35%) minmax(0, 1fr); min-height: 152px; }
+  .shop-collection__image-wrap { height: 100%; min-height: 152px; }
+  .shop-collection__details { justify-content: center; padding: 16px; }
+  .shop-collection__title { font-size: 21px; }
+  .shop-collection__description { font-size: 10px; }
+  .shop-collection__action { margin-top: 14px; }
+}
+
+@media (max-width: 370px) {
+  .shop-collection__link { grid-template-columns: minmax(100px, 33%) minmax(0, 1fr); }
+  .shop-collection__details { padding: 12px; }
+  .shop-collection__title { font-size: 18px; }
+  .shop-collection__description { font-size: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loom-shuttle-image { display: none; }
+  .shop-collection__image,
+  .shop-collection__action span,
+  .shop-collection__link { transition: none; }
+}
