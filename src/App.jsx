@@ -79,18 +79,35 @@ const weavers = [
 ];
 
 function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+  useEffect(() => {
+    const updateHeader = () => {
+      const scrolled = window.scrollY > 36;
+      setIsScrolled(scrolled);
+      if (!scrolled) setIsNavExpanded(false);
+    };
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    return () => window.removeEventListener('scroll', updateHeader);
+  }, []);
+
   return (
     <MotionConfig reducedMotion="user">
     <>
       <IntroLoader />
       <div className="announcement">A little piece of India, woven by hand <span aria-hidden="true">*</span></div>
-      <motion.header className="site-header" initial={{ y: -16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.65, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+      <motion.header className={`site-header${isScrolled ? ' is-scrolled' : ''}${isNavExpanded ? ' is-expanded' : ''}`} initial={{ y: -16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.65, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}>
         <a className="wordmark" href="#home" aria-label="Heritage Handlooms home">
           <span className="wordmark-icon">h<span>h</span></span><span>HERITAGE<br />HANDLOOMS</span>
         </a>
         <nav className="main-nav" aria-label="Main navigation">
           <a href="#collection">Collections</a><a href="#regions">By region</a><a href="#craft">The craft</a><a href="#weavers">Weavers</a>
         </nav>
+        <button className="nav-toggle" type="button" aria-label={isNavExpanded ? 'Collapse navigation' : 'Expand navigation'} aria-expanded={isNavExpanded} onClick={() => setIsNavExpanded((expanded) => !expanded)}>
+          <span /><span />
+        </button>
         <a className="header-link" href="#products">Shop <span aria-hidden="true">&#8599;</span></a>
       </motion.header>
 

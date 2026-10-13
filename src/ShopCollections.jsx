@@ -94,8 +94,8 @@ function CollectionCard({ collection, index, active, reducedMotion, compact }) {
 }
 
 function ShopCollections() {
-  const sectionRef = useRef(null);
-  const hasEntered = useInView(sectionRef, { once: true, amount: 0.12 });
+  const cardsFrameRef = useRef(null);
+  const hasEntered = useInView(cardsFrameRef, { once: true, amount: 0.25 });
   const reducedMotion = useReducedMotion();
   const [compact, setCompact] = useState(() => window.matchMedia('(max-width: 560px)').matches);
 
@@ -110,7 +110,6 @@ function ShopCollections() {
     <section
       className={`shop-collections${reducedMotion ? ' is-reduced-motion' : ''}`}
       id="collection"
-      ref={sectionRef}
       aria-labelledby="shop-collections-title"
     >
       <div className="shop-collections__inner">
@@ -122,7 +121,7 @@ function ShopCollections() {
           </p>
         </header>
 
-        <div className="shop-collections__cards-frame" id="regions">
+        <div className="shop-collections__cards-frame" id="regions" ref={cardsFrameRef}>
           <ShuttleJourney active={hasEntered} reducedMotion={reducedMotion} compact={compact} />
           <div className="shop-collections__grid">
             {collections.map((collection, index) => (

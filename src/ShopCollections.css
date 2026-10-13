@@ -1,12 +1,12 @@
 .shop-collections {
-  --shop-ink: #29271f;
-  --shop-muted: #79766b;
-  --shop-burgundy: #773526;
-  --shop-gold: #b99b67;
-  --shop-paper: #f8f5ee;
+  --shop-ink: #f1e9dc;
+  --shop-muted: #b8ad9c;
+  --shop-burgundy: #d18477;
+  --shop-gold: #c7a76e;
+  --shop-paper: #171512;
   background: var(--shop-paper);
   padding: 70px 7.5% 78px;
-  border-bottom: 1px solid #ded9ce;
+  border-bottom: 1px solid #494038;
 }
 
 .shop-collections__inner {
@@ -22,7 +22,7 @@
 
 .shop-collections__eyebrow {
   margin: 0 0 13px;
-  color: #7a614b;
+  color: #d3b47a;
   font: 700 9px/1.4 'DM Sans', sans-serif;
   letter-spacing: .19em;
 }
@@ -96,8 +96,8 @@
   height: 100%;
   flex-direction: column;
   color: var(--shop-ink);
-  background: #fbf9f3;
-  border: 1px solid #dfd6c5;
+  background: #211d19;
+  border: 1px solid #4a4035;
   text-decoration: none;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
@@ -106,14 +106,14 @@
   position: absolute;
   z-index: 1;
   inset: 5px;
-  border: 1px solid #b99b6738;
+  border: 1px solid #c7a76e45;
   content: '';
   pointer-events: none;
 }
 
 .shop-collection__link:hover {
   border-color: #b99b67;
-  box-shadow: 0 12px 30px #45321a0d;
+  box-shadow: 0 12px 30px #00000040;
 }
 
 .shop-collection__link:focus-visible {
@@ -126,7 +126,7 @@
   display: block;
   height: clamp(205px, 24vw, 292px);
   overflow: hidden;
-  background: #e5d9c8;
+  background: #29231e;
 }
 
 .shop-collection__image-wrap::after {
@@ -187,7 +187,7 @@
   margin-top: 17px;
   padding-top: 11px;
   color: var(--shop-burgundy);
-  border-top: 1px solid #e2d9c9;
+  border-top: 1px solid #4a4035;
   font: 600 9px/1.4 'DM Sans', sans-serif;
   letter-spacing: .035em;
 }
