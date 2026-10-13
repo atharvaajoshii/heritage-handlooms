@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Hero from './components/Hero';
 
 const regions = ['All regions', 'Kanchipuram', 'Banarasi', 'Ilkal', 'Chanderi'];
 
@@ -48,23 +49,7 @@ function App() {
       </header>
 
       <main>
-        <section className="hero" id="home">
-          <div className="hero-copy">
-            <p className="eyebrow"><span /> MADE SLOW, WORN FOREVER</p>
-            <h1>Every thread<br />holds a <em>story.</em></h1>
-            <p className="hero-description">Meet India's handloom heritage: beautiful sarees, thoughtful fabrics, and the hands that bring them to life.</p>
-            <a className="button button-dark" href="#collection">Explore the collection <span>&#8599;</span></a>
-            <div className="hero-caption"><span className="caption-line" /> Woven by hand in India</div>
-          </div>
-          <div className="hero-art" role="img" aria-label="A woman wearing a traditional Indian handloom saree">
-            <div className="hero-image" />
-            <video className="hero-video" autoPlay muted loop playsInline poster="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1100&q=90" aria-hidden="true" tabIndex="-1">
-              <source src="/videos/hero-weaving.mp4" type="video/mp4" />
-            </video>
-            <div className="hero-stamp"><span>*</span><small>ROOTED IN<br />TRADITION</small></div><div className="hero-note">A living craft, carried forward.</div>
-          </div>
-          <span className="hero-index">01 / 03</span>
-        </section>
+        <Hero />
 
         <section className="intro-strip" aria-label="Our values"><span>CRAFTED BY HAND</span><i>*</i><span>ROOTED IN PLACE</span><i>*</i><span>MADE TO BE KEPT</span></section>
 
