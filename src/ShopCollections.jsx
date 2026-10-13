@@ -42,8 +42,8 @@ function ShuttleJourney({ active, reducedMotion, compact }) {
           initial={{ left: '-55%', opacity: 0 }}
           animate={active ? { left: '100%', opacity: [0, 1, 1, 0] } : { left: '-55%', opacity: 0 }}
           transition={{
-            left: { duration: 3.45, ease: 'linear' },
-            opacity: { duration: 3.45, times: [0, 0.06, 0.9, 1], ease: 'linear' },
+            left: { duration: 2.65, ease: 'linear' },
+            opacity: { duration: 2.65, times: [0, 0.06, 0.9, 1], ease: 'linear' },
           }}
         />
       )}
@@ -52,7 +52,7 @@ function ShuttleJourney({ active, reducedMotion, compact }) {
 }
 
 function CollectionCard({ collection, index, active, reducedMotion, compact }) {
-  const delay = reducedMotion ? 0 : compact ? index * 0.15 : [0.82, 1.68, 2.55][index];
+  const delay = reducedMotion ? 0 : compact ? index * 0.15 : [0.63, 1.29, 1.96][index];
   return (
     <motion.article
       className="shop-collection"

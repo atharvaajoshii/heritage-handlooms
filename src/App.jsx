@@ -119,7 +119,15 @@ function App() {
         </section>
 
         <section className="story" id="about">
-          <div className="story-image" role="img" aria-label="Traditional handloom weaving in progress" />
+          <motion.div
+            className="story-image"
+            role="img"
+            aria-label="Traditional handloom weaving in progress"
+            initial={{ opacity: 0, scale: 1.06, x: -18 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          />
           <div className="story-copy"><p className="eyebrow"><span /> OUR HERITAGE, WOVEN FOR TOMORROW</p><h2>Tradition lives<br />when we <em>wear it.</em></h2><p>We bring together India's regional handloom traditions and the people who keep them alive. Each piece is made slowly, with care for the craft, its makers, and the stories it carries.</p><a className="button button-outline" href="#weavers">Our story <span>&#8599;</span></a></div>
           <span className="story-ornament" aria-hidden="true">*</span>
         </section>
