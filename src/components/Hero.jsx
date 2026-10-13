@@ -1,7 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+const PREFIX_TEXT = 'Every thread holds a ';
+const ACCENT_TEXT = 'story.';
+const FULL_TEXT = PREFIX_TEXT + ACCENT_TEXT;
 
 export default function Hero() {
   const videoRef = useRef(null);
+  const [typedCount, setTypedCount] = useState(0);
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
 
   // Smooth scroll handler for anchor links
   const handleScrollTo = (e, targetId) => {
@@ -28,6 +34,41 @@ export default function Hero() {
       }
     }
   }, []);
+
+  // Typewriter effect: types the hero headline sentence letter by letter
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTypedCount(FULL_TEXT.length);
+      setIsTypingComplete(true);
+      return;
+    }
+
+    let intervalId;
+    const startTimeout = setTimeout(() => {
+      let current = 0;
+      intervalId = setInterval(() => {
+        current += 1;
+        setTypedCount(current);
+        if (current >= FULL_TEXT.length) {
+          clearInterval(intervalId);
+          setIsTypingComplete(true);
+        }
+      }, 65);
+    }, 320);
+
+    return () => {
+      clearTimeout(startTimeout);
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, []);
+
+  const prefixLength = PREFIX_TEXT.length;
+  const displayedPrefix = typedCount <= prefixLength
+    ? PREFIX_TEXT.slice(0, typedCount)
+    : PREFIX_TEXT;
+  const displayedAccent = typedCount > prefixLength
+    ? ACCENT_TEXT.slice(0, typedCount - prefixLength)
+    : '';
 
   return (
     <section className="hero hero-centered" id="home" aria-label="Hero">
@@ -65,9 +106,16 @@ export default function Hero() {
           <span className="hero-eyebrow-rule" aria-hidden="true" />
         </div>
 
-        {/* Main headline */}
-        <h1 className="hero-title hero-fade-3">
-          Every thread holds a <em className="hero-accent">story.</em>
+        {/* Main headline with typewriter letter-by-letter typing effect */}
+        <h1 className="hero-title hero-fade-3" aria-label="Every thread holds a story.">
+          <span>{displayedPrefix}</span>
+          {displayedAccent && <em className="hero-accent">{displayedAccent}</em>}
+          <span
+            className={`hero-typing-cursor ${isTypingComplete ? 'is-complete' : ''}`}
+            aria-hidden="true"
+          >
+            |
+          </span>
         </h1>
 
         {/* Supporting description */}
@@ -118,7 +166,6 @@ export default function Hero() {
           </a>
         </div>
       </div>
-
     </section>
   );
 }

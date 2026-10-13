@@ -161,6 +161,7 @@ h2 em { font-weight: 500; color: var(--red); }
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.9);
   margin: 0 0 22px;
   max-width: 760px;
+  min-height: 1.1em;
 }
 
 .hero-title .hero-accent {
@@ -168,6 +169,42 @@ h2 em { font-weight: 500; color: var(--red); }
   font-weight: 500;
   color: #ff6e7e;
   text-shadow: 0 2px 20px rgba(230, 60, 80, 0.5), 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Typewriter cursor styling */
+.hero-typing-cursor {
+  display: inline-block;
+  margin-left: 3px;
+  color: #f5d799;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  line-height: 0.9;
+  text-shadow: 0 0 12px rgba(245, 215, 153, 0.85);
+  animation: heroCursorBlink 0.85s steps(2, start) infinite;
+  vertical-align: baseline;
+  user-select: none;
+  transition: opacity 0.5s ease;
+}
+
+.hero-typing-cursor.is-complete {
+  animation: heroCursorBlink 0.85s steps(2, start) 4, heroCursorFade 0.6s ease 3.4s forwards;
+}
+
+@keyframes heroCursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes heroCursorFade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 /* Supporting description */
